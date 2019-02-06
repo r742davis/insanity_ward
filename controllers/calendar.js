@@ -8,4 +8,22 @@ router.get('/', (req, res) => {
   })
 })
 
+router.delete('/:id', (req, res) => {
+  Calendar.findByIdAndRemove(req.params.id, (err, deletedEvent) => {
+    res.json(deletedEvent)
+  })
+})
+
+router.post('/', (req, res) => {
+  Calendar.create(req.body, (err, newEvent) => {
+    res.json(newEvent)
+  })
+})
+
+router.put('/:id', (req, res) => {
+  Calendar.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedEvent) => {
+    res.json(updatedEvent)
+  })
+})
+
 module.exports = router;
