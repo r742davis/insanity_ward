@@ -7,7 +7,26 @@
     <link rel="stylesheet" href="/css/main.css">
     <title></title>
   </head>
-  <body ng-controller='CalendarController'>
-    {{2+2}}
+  <body ng-controller='CalendarController as ctrl'>
+    <h1>My Calendar</h1>
+    <h2>Add Event</h2>
+    <form ng-submit='ctrl.createEvent()'>
+      <input type="text" placeholder="Name" ng-model='ctrl.name'>
+      <input type="text" placeholder="Date" ng-model='ctrl.date'>
+      <input type="text" placeholder="Start Time" ng-model='ctrl.startTime'>
+      <input type="text" placeholder="End Time" ng-model='ctrl.endTime'>
+      <input type="text" placeholder="Location" ng-model='ctrl.location'>
+      <input type="text" placeholder="Notes" ng-model='ctrl.notes'>
+      <input type="submit" name="" value="Add">
+    </form>
+    <ul ng-repeat='event in ctrl.calendar'>
+      <li>{{event.name}}</li>
+      <li>{{event.date}}</li>
+      <li>{{event.startTime}}</li>
+      <li>{{event.endTime}}</li>
+      <li>{{event.location}}</li>
+      <li>{{event.notes}}</li>
+    </ul>
+
   </body>
 </html>
