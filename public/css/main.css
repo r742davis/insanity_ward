@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Lora|Muli');
 
+html {
+  background: url("http://mariessweetdesigns.com/wp-content/uploads/cool-backrounds-cool-backgrounds.png") no-repeat center center fixed;
+  background-size: cover;
+}
+
 body {
   color: rgb(104, 185, 210);
   padding: 0;
@@ -11,6 +16,20 @@ h1, h2 {
   text-align: center;
 }
 
+h1 {
+  margin-top: 0;
+  padding-top: 50px;
+  padding-bottom: 25px;
+}
+
+h2 {
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background: white;
+  border-radius: 10px;
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -18,30 +37,45 @@ form {
   align-items: center;
   width: 400px;
   margin: 0 auto;
+  margin-top: 50px;
   padding: 20px;
   /* border: 1px solid blue; */
   border-radius: 5px;
-  background: silver;
+  background: whitesmoke;
 }
 
 input {
   width: 150px;
+  padding: 6px;
   font-family: 'Muli', sans-serif;
   font-size: 1em;
+  border: 3px solid rgb(104, 185, 210);
+  border-radius: 10px;
 }
-input[name=buttons] {
-  height: 10px;
+input:hover {
+  border: 3px solid rgb(150, 200, 210);
+}
+input[name="buttons"] {
+  width: 100px;
+  padding: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+  background: rgb(104, 185, 210);
+  color: white;
+  border: none;
+  box-shadow: 0px 5px 10px -5px darkgray;
 }
 
 .title {
-
+  background: white;
+  margin-top: 0;
 }
 
 .add-event-container {
   display: flex;
   flex-direction: column;
   width: 800px;
-  height: 400px;
+  height: auto;
   margin: 0 auto;
   align-items: center;
   /* border: 1px solid black; */
@@ -61,4 +95,37 @@ input[name=buttons] {
   justify-content: center;
   width: 400px;
   /* border: 1px solid blue; */
+}
+/*********/
+/* Modal */
+/*********/
+.modalDialog {
+  position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 99999;
+	opacity:0;
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+	pointer-events: none;
+}
+
+.modalDialog:target {
+	opacity:1;
+	pointer-events: auto;
+}
+
+.close {
+  background: rgb(104, 185, 210);
+  padding: 1em 1.25em 1em 1.25em;
+  border-radius: 2em;
+  font-family: 'Muli', sans-serif;
+}
+.close a {
+  color: white;
+  text-decoration: none;
 }
