@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" ng-app="CalendarsApp">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js" charset="utf-8"></script>
+    <script src="/js/app.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="/css/main.css">
+    <title></title>
+  </head>
+  <body ng-controller='CalendarController as ctrl'>
+    <h1>My Calendar</h1>
+    <h2>Add Event</h2>
+    <form ng-submit='ctrl.createEvent()'>
+      <input type="text" placeholder="Name" ng-model='ctrl.name'>
+      <input type="text" placeholder="Date" ng-model='ctrl.date'>
+      <input type="text" placeholder="Start Time" ng-model='ctrl.startTime'>
+      <input type="text" placeholder="End Time" ng-model='ctrl.endTime'>
+      <input type="text" placeholder="Location" ng-model='ctrl.location'>
+      <input type="text" placeholder="Notes" ng-model='ctrl.notes'>
+      <input type="submit" name="" value="Add">
+    </form>
+    <div class="calendar-container">
+      <div class="event" ng-repeat='event in ctrl.calendar'>
+        <h3>{{event.name}}</h3>
+        <h4>Date: {{event.date}}</h4>
+        <h4>Time: {{event.startTime}} to {{event.endTime}}</h4>
+        <h4>{{event.location}}</h4>
+        <p>Notes: {{event.notes}}</p>
+        <button type="button" ng-click='ctrl.editEvent(event)'>Edit</button>
+        <button type="button" ng-click='ctrl.deleteEvent(event)'>Delete</button>
+      </div>
+    </div>
+  </body>
+</html>
