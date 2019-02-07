@@ -41,7 +41,7 @@
 
     </div>
     <div class="calendar-container">
-      <div class="event-container" ng-repeat='event in ctrl.calendar'>
+      <div class="event-container" ng-repeat='event in ctrl.calendar | orderBy: "-date" : true'>
                                     <!-- hides the 'show' div on edit button click -->
         <div class="event" ng-show='$index !== ctrl.eventIndex'>
 
