@@ -12,7 +12,8 @@ body {
   font-family: 'Muli', sans-serif;
 }
 
-h1, h2 {
+h1,
+h2 {
   text-align: center;
 }
 
@@ -27,7 +28,7 @@ h2 {
   padding: 10px 40px 10px 40px;
   margin-top: 20px;
   margin-bottom: 20px;
-  background: white;
+  background: whitesmoke;
   border-radius: 10px;
   font-size: 18px;
 }
@@ -41,37 +42,55 @@ form {
   margin: 0 auto;
   margin-top: 50px;
   padding: 20px;
-  /* border: 1px solid blue; */
   border-radius: 5px;
-  background: whitesmoke;
+  background: whitesmokesmoke;
 }
 
-input {
+button,
+input,
+a[name="edit"] {
   width: 150px;
   padding: 6px;
   font-family: 'Muli', sans-serif;
   font-size: 1em;
   border: 3px solid rgb(104, 185, 210);
   border-radius: 10px;
+  transition: 0.25s;
 }
 input:hover {
   border: 3px solid rgb(150, 200, 210);
+  transition: 0.5s;
 }
-input[name="buttons"] {
+button,
+input[name="buttons"],
+a[name="edit"] {
   width: 100px;
   padding: 10px;
   margin-top: 20px;
   cursor: pointer;
   background: rgb(104, 185, 210);
-  color: white;
+  color: whitesmoke;
   border: none;
   box-shadow: 0px 5px 10px -5px darkgray;
+  transition: 0.5s;
+}
+input[name="buttons"]:hover {
+  background: rgb(150, 200, 210);
+  transition: 0.5s;
+}
+
+span {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .title {
-  background: white;
+  background: whitesmoke;
   margin-top: 0;
 }
+
 
 .add-event-container {
   display: flex;
@@ -80,24 +99,48 @@ input[name="buttons"] {
   height: auto;
   margin: 0 auto;
   align-items: center;
-  /* border: 1px solid black; */
 }
 
 .calendar-container {
   display: flex;
-  justify-content: center;
-  width: 500px;
+  justify-content: space-between;
+  width: 1150px;
+  height:auto;
+  flex-wrap: wrap;
   margin: 0 auto;
-  margin-top: 50px;
-  border: 1px solid black;
+  margin-top: 25px;
+  margin-bottom: 50px;
 }
 
 .event-container {
   display: flex;
   justify-content: center;
-  width: 400px;
-  /* border: 1px solid blue; */
+  width: 350px;
+  border: 10px solid rgb(104, 185, 210);
+  border-radius: 1em;
+  background: whitesmoke;
 }
+.event-container h3 {
+  font-size: 32px;
+  font-weight: bolder;
+  width: 200px;
+  height: 50px;
+}
+.event-container h4, p {
+  font-size: 18px;
+  color: black;
+}
+.event {
+  width: 250px;
+}
+.details {
+  height: 300px;
+}
+.edit-delete-container {
+  margin: 10px;
+  justify-content: center;
+}
+
 /*********/
 /* Modal */
 /*********/
@@ -110,8 +153,6 @@ input[name="buttons"] {
 	background: rgba(0,0,0,0.8);
 	z-index: 99999;
 	opacity:0;
-	-webkit-transition: opacity 400ms ease-in;
-	-moz-transition: opacity 400ms ease-in;
 	transition: opacity 400ms ease-in;
 	pointer-events: none;
 }
@@ -126,9 +167,15 @@ input[name="buttons"] {
   padding: 1em 1.25em 1em 1.25em;
   border-radius: 2em;
   font-family: 'Muli', sans-serif;
+  box-shadow: 0px 5px 10px -5px darkgray;
+  transition: 0.5s;
+}
+.close:hover {
+  background: rgb(150, 200, 210);
+  transition: 0.5s;
 }
 .close a {
-  color: white;
+  color: whitesmoke;
   text-decoration: none;
 }
 .links {

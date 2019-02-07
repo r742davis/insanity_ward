@@ -21,6 +21,7 @@
               <div class="close">
           		   <a href="#close" title="Close">X</a>
               </div><br>
+            <h2>ADD EVENT</h2>
             <label>Name</label>
               <input type="text" placeholder="Name" ng-model='ctrl.name'>
             <label>Date</label>
@@ -42,30 +43,46 @@
     </div>
     <div class="calendar-container">
       <div class="event-container" ng-repeat='event in ctrl.calendar | orderBy: "-date" : true'>
-                                    <!-- hides the 'show' div on edit button click -->
-        <div class="event" ng-show='$index !== ctrl.eventIndex'>
-
+        <!-- Event Name, Details, and Buttons -->
+        <div class="event">
           <h3>{{event.name}}</h3>
-          <h4>Date: {{event.date | date: 'MM/dd/yyyy'}}</h4>
-          <h4>Time: {{event.startTime | date: 'HH:mma'}} to {{event.endTime | date: 'HH:mma'}}</h4>
-          <h4>{{event.location}}</h4>
-          <p>Notes: {{event.notes}}</p>
-          <button type="button" ng-click='ctrl.eventIndex = $index; console.log($index)'>Edit</button>
-          <button type="button" ng-click='ctrl.deleteEvent(event._id)'>Delete</button>
+          <div class="details">
+            <span><h4>Date:</h4><p>{{event.date | date: 'MM/dd/yyyy'}}</p></span>
+            <span><h4>Time:</h4><p>{{event.startTime | date: 'HH:mma'}} to {{event.endTime | date: 'HH:mma'}}</p></span>
+            <span><h4>Location:</h4><p>{{event.location}}</p></span>
+            <h4>Notes:</h4>
+            <p>{{event.notes}}</p>
+          </div>
+          <div class="edit-delete-container">
+            <a href="#openEditModal" name="edit" class="links">Edit</a>
+            <button type="button" ng-click='ctrl.deleteEvent(event._id)'>Delete</button>
+          </div>
         </div>
-                                            <!-- shows the edit form on edit button click -->
-        <form ng-submit='ctrl.editEvent(event)' ng-show='$index === ctrl.eventIndex'>
-          <h2>Edit Event</h2>
-          <input type="text" placeholder="{{event.name}}" ng-model='ctrl.editName'>
-          <input type="text" placeholder="{{event.date | date: 'MM/dd/yyyy'}}" ng-model='ctrl.editDate'>
-          <input type="text" placeholder="{{event.startTime | date: 'HH:mma'}}" ng-model='ctrl.editStartTime'>
-          <input type="text" placeholder="{{event.endTime | date: 'HH:mma'}}" ng-model='ctrl.editEndTime'>
-          <input type="text" placeholder="{{event.location}}" ng-model='ctrl.editLocation'>
-          <input type="text" placeholder="{{event.notes}}" ng-model='ctrl.editNotes'>
-          <input type="submit" name="" value="Submit">
-          <button type="button" name="button" ng-click='ctrl.eventIndex = null'>Cancel</button>
-
+      <!-- Opens Edit Modal -->
+      <div id="openEditModal" class="modalDialog">
+        <form ng-submit='ctrl.editEvent(event)'>
+          <!-- Close Edit Modal -->
+          <div class="close">
+             <a href="#close" title="Close">X</a>
+          </div><br>
+          <!-- Edit Calendar Item Form -->
+          <h2>EDIT EVENT</h2>
+          <label>Name</label>
+            <input type="text" placeholder="{{event.name}}" ng-model='ctrl.editName'>
+          <label>Date</label>
+            <input type="text" placeholder="{{event.date | date: 'MM/dd/yyyy'}}" ng-model='ctrl.editDate'>
+          <label>Start Time</label>
+            <input type="text" placeholder="{{event.startTime | date: 'HH:mma'}}" ng-model='ctrl.editStartTime'>
+          <label>End Time</label>
+            <input type="text" placeholder="{{event.endTime | date: 'HH:mma'}}" ng-model='ctrl.editEndTime'>
+          <label>Location</label>
+            <input type="text" placeholder="{{event.location}}" ng-model='ctrl.editLocation'>
+          <label>Notes</label>
+            <input type="text" name="notes" placeholder="{{event.notes}}" ng-model='ctrl.editNotes'>
+          <!-- Submit Button -->
+          <input type="submit" name="buttons" value="Submit">
         </form>
+      </div>
       </div>
     </div>
   </body>
