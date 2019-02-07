@@ -50,10 +50,11 @@
           <input type="text" placeholder="{{event.name}}" ng-model='ctrl.editName'>
           <input type="text" placeholder="{{event.date}}" ng-model='ctrl.editDate'>
           <input type="text" placeholder="{{event.startTime}}" ng-model='ctrl.editStartTime'>
-          <input type="text" placeholder="{{event.endTime}}" ng-model='ctrl.editDndTime'>
+          <input type="text" placeholder="{{event.endTime}}" ng-model='ctrl.editEndTime'>
           <input type="text" placeholder="{{event.location}}" ng-model='ctrl.editLocation'>
           <input type="text" placeholder="{{event.notes}}" ng-model='ctrl.editNotes'>
           <input type="submit" name="" value="Submit">
+          <button type="button" name="button" ng-click='ctrl.eventIndex = null'>Cancel</button>
 
         </form>
       </div>

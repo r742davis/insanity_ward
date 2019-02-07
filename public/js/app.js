@@ -5,7 +5,28 @@ app.controller('CalendarController', ['$http', function($http){
   // sets variable for index of item to be updated
   this.eventIndex = null;
 
-
+  this.editEvent = (event) => {
+    $http({
+      method: 'PUT',
+      url: '/calendar/' + event._id,
+      data: {
+        name: this.editName,
+        date: this.editDate,
+        startTime: this.editStartTime,
+        endTime: this.editEndTime,
+        location: this.editLocation,
+        notes: this.editNotes
+      }
+    }).then(
+      (res) => {
+        this.getCalendar(),
+        this.eventIndex = null
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
+  }
 
   this.getCalendar = () => {
     $http({
@@ -49,26 +70,6 @@ app.controller('CalendarController', ['$http', function($http){
     }, error => {
       console.log(error);
     })
-  }
-
-  this.editEvent = (event) => {
-    $http({
-      method: 'PUT',
-      url: `/calendar/:${event._id}`,
-      data: {
-        name: event.name,
-        date: event.date,
-        startTime: event.startTime,
-        endTime: event.endTime,
-        location: event.location,
-        notes: event.notes
-      }
-    }).then(
-      this.getCalendar(),
-      (err) => {
-        console.log(err);
-      }
-    )
   }
 
   this.getCalendar()
