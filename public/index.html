@@ -10,23 +10,25 @@
   <body ng-controller='CalendarController as ctrl'>
     <h1>My Calendar</h1>
     <h2>Add Event</h2>
-    <form ng-submit='ctrl.createEvent()'>
-      <label>Name</label>
-        <input type="text" placeholder="Name" ng-model='ctrl.name'>
-      <label>Date</label>
-        <input type="date" placeholder="Date" ng-model='ctrl.date'>
-      <label>Start Time</label>
-        <input type="time" placeholder="Start Time" ng-model='ctrl.startTime'>
-      <label>End Time</label>
-        <input type="time" placeholder="End Time" ng-model='ctrl.endTime'>
-      <label>Location</label>
-        <input type="text" placeholder="Location" ng-model='ctrl.location'>
-      <label>Notes</label>
-      <input type="text" placeholder="Notes" ng-model='ctrl.notes'>
+    <div class="add-event-container">
+      <form ng-submit='ctrl.createEvent()'>
+        <label>Name</label>
+          <input type="text" placeholder="Name" ng-model='ctrl.name'>
+        <label>Date</label>
+          <input type="date" placeholder="Date" ng-model='ctrl.date'>
+        <label>Start Time</label>
+          <input type="time" placeholder="Start Time" ng-model='ctrl.startTime'>
+        <label>End Time</label>
+          <input type="time" placeholder="End Time" ng-model='ctrl.endTime'>
+        <label>Location</label>
+          <input type="text" placeholder="Location" ng-model='ctrl.location'>
+        <label>Notes</label>
+        <input type="text" placeholder="Notes" ng-model='ctrl.notes'>
 
-      <input type="submit" value="Add">
-      <input type="reset" value="Reset">
-    </form>
+        <input type="submit" value="Add">
+        <input type="reset" value="Reset">
+      </form>
+    </div>
     <div class="calendar-container">
       <div class="event-container" ng-repeat='event in ctrl.calendar'>
                                     <!-- hides the 'show' div on edit button click -->

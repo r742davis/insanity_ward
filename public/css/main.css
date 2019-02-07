@@ -1,3 +1,39 @@
 body {
   color: rgb(104, 185, 210);
+  padding: 0;
+  margin: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 400px;
+  margin: 0 auto;
+  border: 1px solid blue;
+}
+
+.add-event-container {
+  display: flex;
+  width: 600px;
+  height: 400px;
+  margin: 0 auto;
+  align-items: center;
+  border: 1px solid black;
+}
+
+.calendar-container {
+  display: flex;
+  justify-content: center;
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 50px;
+  border: 1px solid black;
+}
+
+.event-container {
+  display: flex;
+  justify-content: center;
+  width: 400px;
+  border: 1px solid blue;
 }
