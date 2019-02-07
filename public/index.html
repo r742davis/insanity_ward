@@ -46,8 +46,8 @@
         <div class="event" ng-show='$index !== ctrl.eventIndex'>
 
           <h3>{{event.name}}</h3>
-          <h4>Date: {{event.date}}</h4>
-          <h4>Time: {{event.startTime}} to {{event.endTime}}</h4>
+          <h4>Date: {{event.date | date: 'MM/dd/yyyy'}}</h4>
+          <h4>Time: {{event.startTime | date: 'HH:mma'}} to {{event.endTime | date: 'HH:mma'}}</h4>
           <h4>{{event.location}}</h4>
           <p>Notes: {{event.notes}}</p>
           <button type="button" ng-click='ctrl.eventIndex = $index; console.log($index)'>Edit</button>
@@ -57,9 +57,9 @@
         <form ng-submit='ctrl.editEvent(event)' ng-show='$index === ctrl.eventIndex'>
           <h2>Edit Event</h2>
           <input type="text" placeholder="{{event.name}}" ng-model='ctrl.editName'>
-          <input type="text" placeholder="{{event.date}}" ng-model='ctrl.editDate'>
-          <input type="text" placeholder="{{event.startTime}}" ng-model='ctrl.editStartTime'>
-          <input type="text" placeholder="{{event.endTime}}" ng-model='ctrl.editEndTime'>
+          <input type="text" placeholder="{{event.date | date: 'MM/dd/yyyy'}}" ng-model='ctrl.editDate'>
+          <input type="text" placeholder="{{event.startTime | date: 'HH:mma'}}" ng-model='ctrl.editStartTime'>
+          <input type="text" placeholder="{{event.endTime | date: 'HH:mma'}}" ng-model='ctrl.editEndTime'>
           <input type="text" placeholder="{{event.location}}" ng-model='ctrl.editLocation'>
           <input type="text" placeholder="{{event.notes}}" ng-model='ctrl.editNotes'>
           <input type="submit" name="" value="Submit">
