@@ -19,14 +19,16 @@
       <input type="text" placeholder="Notes" ng-model='ctrl.notes'>
       <input type="submit" name="" value="Add">
     </form>
-    <ul ng-repeat='event in ctrl.calendar'>
-      <li>{{event.name}}</li>
-      <li>{{event.date}}</li>
-      <li>{{event.startTime}}</li>
-      <li>{{event.endTime}}</li>
-      <li>{{event.location}}</li>
-      <li>{{event.notes}}</li>
-    </ul>
-
+    <div class="calendar-container">
+      <div class="event" ng-repeat='event in ctrl.calendar'>
+        <h3>{{event.name}}</h3>
+        <h4>Date: {{event.date}}</h4>
+        <h4>Time: {{event.startTime}} to {{event.endTime}}</h4>
+        <h4>{{event.location}}</h4>
+        <p>Notes: {{event.notes}}</p>
+        <button type="button" ng-click='ctrl.editEvent(event)'>Edit</button>
+        <button type="button" ng-click='ctrl.deleteEvent(event)'>Delete</button>
+      </div>
+    </div>
   </body>
 </html>
