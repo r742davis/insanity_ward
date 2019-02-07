@@ -44,12 +44,12 @@ app.controller('CalendarController', ['$http', function($http){
       method: 'PUT',
       ur: `/calendar/:${event._id}`,
       data: {
-        name: this.name,
-        date: this.date,
-        startTime: this.startTime,
-        endTime: this.endTime,
-        location: this.location,
-        notes: this.notes
+        name: event.name,
+        date: event.date,
+        startTime: event.startTime,
+        endTime: event.endTime,
+        location: event.location,
+        notes: event.notes
       }
     }).then(
       this.getCalendar,

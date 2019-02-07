@@ -34,7 +34,15 @@
         </div>
                                             <!-- shows the edit form on edit button click -->
         <form ng-submit='ctrl.editEvent(event)' ng-show='$index === ctrl.eventIndex'>
-          <input type="text" placeholder="{{ctrl.name}}" ng-model='ctrl.editName'>
+          <h2>Edit Event</h2>
+          <input type="text" placeholder="{{event.name}}" ng-model='ctrl.editName'>
+          <input type="text" placeholder="{{event.date}}" ng-model='ctrl.editDate'>
+          <input type="text" placeholder="{{event.startTime}}" ng-model='ctrl.editStartTime'>
+          <input type="text" placeholder="{{event.endTime}}" ng-model='ctrl.editDndTime'>
+          <input type="text" placeholder="{{event.location}}" ng-model='ctrl.editLocation'>
+          <input type="text" placeholder="{{event.notes}}" ng-model='ctrl.editNotes'>
+          <input type="submit" name="" value="Submit">
+
         </form>
       </div>
     </div>
