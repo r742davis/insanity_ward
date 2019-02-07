@@ -1,4 +1,5 @@
 const app = angular.module('CalendarsApp', [])
+// const moment = require('moment')
 
 app.controller('CalendarController', ['$http', function($http){
 
@@ -19,8 +20,9 @@ app.controller('CalendarController', ['$http', function($http){
       }
     }).then(
       (res) => {
-        this.getCalendar(),
-        this.eventIndex = null
+        console.log(res.data);
+        // this.getCalendar(),
+        // this.eventIndex = null
       },
       (err) => {
         console.log(err);
@@ -70,6 +72,13 @@ app.controller('CalendarController', ['$http', function($http){
     }, error => {
       console.log(error);
     })
+  }
+
+  let monthArr = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+  const formatDate = (date) => {
+    let d = new Date()
+    let month = month
   }
 
   this.getCalendar()
