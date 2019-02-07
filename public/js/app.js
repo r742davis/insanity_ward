@@ -39,13 +39,13 @@ app.controller('CalendarController', ['$http', function($http){
     )
   }
 
-  this.deleteEvent = (event) => {
+  this.deleteEvent = (id) => {
     $http({
       method: 'DELETE',
-      url: `/calendar/:${event._id}`
+      url: '/calendar/' + id
     }).then(response => {
-      console.log(response.data);
-      console.log('It worked!');
+      const removeByIndex = this.calendar.findIndex(calendar => calendar._id === id)
+      this.calendar.splice(removeByIndex, 1)
     }, error => {
       console.log(error);
     })
