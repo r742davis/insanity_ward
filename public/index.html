@@ -11,13 +11,21 @@
     <h1>My Calendar</h1>
     <h2>Add Event</h2>
     <form ng-submit='ctrl.createEvent()'>
-      <input type="text" placeholder="Name" ng-model='ctrl.name'>
-      <input type="text" placeholder="Date" ng-model='ctrl.date'>
-      <input type="text" placeholder="Start Time" ng-model='ctrl.startTime'>
-      <input type="text" placeholder="End Time" ng-model='ctrl.endTime'>
-      <input type="text" placeholder="Location" ng-model='ctrl.location'>
+      <label>Name</label>
+        <input type="text" placeholder="Name" ng-model='ctrl.name'>
+      <label>Date</label>
+        <input type="date" placeholder="Date" ng-model='ctrl.date'>
+      <label>Start Time</label>
+        <input type="time" placeholder="Start Time" ng-model='ctrl.startTime'>
+      <label>End Time</label>
+        <input type="time" placeholder="End Time" ng-model='ctrl.endTime' name="usr_time">
+      <label>Location</label>
+        <input type="text" placeholder="Location" ng-model='ctrl.location'>
+      <label>Notes</label>
       <input type="text" placeholder="Notes" ng-model='ctrl.notes'>
-      <input type="submit" name="" value="Add">
+
+      <input type="submit" value="Add">
+      <input type="reset" value="Reset">
     </form>
     <div class="calendar-container">
       <div class="event-container" ng-repeat='event in ctrl.calendar'>
