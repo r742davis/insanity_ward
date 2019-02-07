@@ -1,3 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Lora|Muli');
+
 body {
   color: rgb(104, 185, 210);
+  padding: 0;
+  margin: 0;
+  font-family: 'Muli', sans-serif;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  /* border: 1px solid blue; */
+  border-radius: 5px;
+  background: silver;
+}
+
+input {
+  width: 150px;
+  font-family: 'Muli', sans-serif;
+  font-size: 1em;
+}
+input[name=buttons] {
+  height: 10px;
+}
+
+.title {
+
+}
+
+.add-event-container {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  height: 400px;
+  margin: 0 auto;
+  align-items: center;
+  /* border: 1px solid black; */
+}
+
+.calendar-container {
+  display: flex;
+  justify-content: center;
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 50px;
+  border: 1px solid black;
+}
+
+.event-container {
+  display: flex;
+  justify-content: center;
+  width: 400px;
+  /* border: 1px solid blue; */
 }

@@ -39,10 +39,22 @@ app.controller('CalendarController', ['$http', function($http){
     )
   }
 
+  this.deleteEvent = (id) => {
+    $http({
+      method: 'DELETE',
+      url: '/calendar/' + id
+    }).then(response => {
+      const removeByIndex = this.calendar.findIndex(calendar => calendar._id === id)
+      this.calendar.splice(removeByIndex, 1)
+    }, error => {
+      console.log(error);
+    })
+  }
+
   this.editEvent = (event) => {
     $http({
       method: 'PUT',
-      ur: `/calendar/:${event._id}`,
+      url: `/calendar/:${event._id}`,
       data: {
         name: event.name,
         date: event.date,
@@ -52,7 +64,7 @@ app.controller('CalendarController', ['$http', function($http){
         notes: event.notes
       }
     }).then(
-      this.getCalendar,
+      this.getCalendar(),
       (err) => {
         console.log(err);
       }

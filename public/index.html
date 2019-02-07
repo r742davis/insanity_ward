@@ -8,17 +8,29 @@
     <title></title>
   </head>
   <body ng-controller='CalendarController as ctrl'>
-    <h1>My Calendar</h1>
-    <h2>Add Event</h2>
-    <form ng-submit='ctrl.createEvent()'>
-      <input type="text" placeholder="Name" ng-model='ctrl.name'>
-      <input type="text" placeholder="Date" ng-model='ctrl.date'>
-      <input type="text" placeholder="Start Time" ng-model='ctrl.startTime'>
-      <input type="text" placeholder="End Time" ng-model='ctrl.endTime'>
-      <input type="text" placeholder="Location" ng-model='ctrl.location'>
-      <input type="text" placeholder="Notes" ng-model='ctrl.notes'>
-      <input type="submit" name="" value="Add">
-    </form>
+    <div class="title">
+      <h1>My Calendar</h1>
+    </div>
+    <div class="add-event-container">
+      <h2>Add Event</h2>
+      <form ng-submit='ctrl.createEvent()'>
+        <label>Name</label>
+          <input type="text" placeholder="Name" ng-model='ctrl.name'>
+        <label>Date</label>
+          <input type="date" placeholder="Date" ng-model='ctrl.date'>
+        <label>Start Time</label>
+          <input type="time" placeholder="Start Time" ng-model='ctrl.startTime'>
+        <label>End Time</label>
+          <input type="time" placeholder="End Time" ng-model='ctrl.endTime'>
+        <label>Location</label>
+          <input type="text" placeholder="Location" ng-model='ctrl.location'>
+        <label>Notes</label>
+        <input type="text" placeholder="Notes" ng-model='ctrl.notes'>
+
+        <input name="buttons" type="submit" value="Add">
+        <input name="buttons" type="reset" value="Reset">
+      </form>
+    </div>
     <div class="calendar-container">
       <div class="event-container" ng-repeat='event in ctrl.calendar'>
                                     <!-- hides the 'show' div on edit button click -->
@@ -30,7 +42,7 @@
           <h4>{{event.location}}</h4>
           <p>Notes: {{event.notes}}</p>
           <button type="button" ng-click='ctrl.eventIndex = $index; console.log($index)'>Edit</button>
-          <button type="button" ng-click='ctrl.deleteEvent(event)'>Delete</button>
+          <button type="button" ng-click='ctrl.deleteEvent(event._id)'>Delete</button>
         </div>
                                             <!-- shows the edit form on edit button click -->
         <form ng-submit='ctrl.editEvent(event)' ng-show='$index === ctrl.eventIndex'>
