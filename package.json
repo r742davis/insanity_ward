@@ -19,6 +19,7 @@
   "homepage": "https://github.com/r742davis/insanity_ward#readme",
   "dependencies": {
     "express": "^4.16.4",
+    "moment": "^2.24.0",
     "mongoose": "^5.4.10"
   }
 }
